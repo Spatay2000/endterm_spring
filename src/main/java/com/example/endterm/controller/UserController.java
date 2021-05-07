@@ -24,25 +24,29 @@ public class UserController {
     }
 
     @PostMapping("/update")
-    public  User update(@RequestBody User user){
+    public User update(@RequestBody User user) {
         return userService.uptade(user);
     }
 
     @PostMapping("/all")
-    public List<User> findAll(){
+    public List<User> findAll() {
         return userService.findAll();
     }
 
     @PostMapping("/{id}")
-    public User getById(@RequestBody int id ){
-        return  userService.getById(id);
+    public User getById(@RequestBody int id) {
+        return userService.getById(id);
     }
 
     @PostMapping("/delete")
-    public void delete(@RequestBody int id ){
+    public void delete(@RequestBody int id) {
         userService.delete(id);
     }
 
+    @PostMapping("/find/{email}")
+    public User getByEmail(@RequestBody String email) {
+        return userService.findByEmail(email);
+    }
 
 
 }
